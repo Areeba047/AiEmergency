@@ -8,19 +8,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary-blue: #1e40af;
-      --secondary-blue: #3b82f6;
-      --accent-red: #dc2626;
-      --light-gray: #f8fafc;
-      --medium-gray: #e2e8f0;
-      --dark-text: #1e293b;
-      --muted-text: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #dc2626;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --bg-light: #f8fafc;
+      --border: #e2e8f0;
       --white: #ffffff;
-      --success: #059669;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     * {
@@ -30,259 +32,291 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--light-gray);
-      color: var(--dark-text);
-      line-height: 1.7;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-primary);
+      line-height: 1.75;
       font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Header */
-    .header-wrapper {
-      background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-      padding: 4.5rem 2rem 6rem;
+    /* ==================== HEADER ==================== */
+    .header {
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+      padding: 3.5rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
       text-align: center;
       position: relative;
+      z-index: 1;
     }
 
-    .header-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .legal-badge {
+    .badge {
       display: inline-block;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
       color: var(--white);
-      padding: 0.5rem 1.5rem;
-      border-radius: 100px;
-      font-size: 0.875rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.8125rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       margin-bottom: 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .header-wrapper h1 {
+    .header h1 {
       color: var(--white);
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 800;
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
     }
 
-    .header-wrapper .subtitle {
+    .header .subtitle {
       color: rgba(255, 255, 255, 0.9);
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
       font-weight: 400;
       margin-bottom: 0.5rem;
     }
 
-    .effective-date {
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 0.95rem;
+    .header .date {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
       margin-top: 1rem;
     }
 
-    /* Main Container */
-    .content-wrapper {
-      max-width: 1000px;
-      margin: -4rem auto 4rem;
-      padding: 0 1.5rem;
+    /* ==================== MAIN CONTENT ==================== */
+    .main-container {
+      max-width: 1200px;
+      margin: -3rem auto 4rem;
+      padding: 0 1rem;
       position: relative;
       z-index: 10;
     }
 
-    .document-card {
+    .document {
       background: var(--white);
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
-      padding: 4rem;
-      border: 1px solid var(--medium-gray);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      padding: clamp(2rem, 5vw, 4rem);
+      border: 1px solid var(--border);
     }
 
-    /* Typography */
-    h2 {
-      color: var(--primary-blue);
-      font-size: 1.75rem;
+    /* ==================== TYPOGRAPHY ==================== */
+    .document h2 {
+      color: var(--text-primary);
+      font-size: clamp(1.375rem, 3vw, 1.75rem);
       font-weight: 700;
-      margin: 3.5rem 0 1.5rem;
+      margin: 3rem 0 1.5rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
+      line-height: 1.3;
     }
 
-    h2:first-of-type {
+    .document h2:first-of-type {
       margin-top: 0;
     }
 
-    .section-num {
+    .num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: var(--primary-blue);
+      min-width: 40px;
+      height: 40px;
+      background: var(--primary);
       color: var(--white);
-      border-radius: 12px;
-      font-size: 1.125rem;
+      border-radius: 10px;
+      font-size: 1rem;
       font-weight: 700;
       flex-shrink: 0;
+      padding: 0 0.75rem;
     }
 
-    h3 {
-      color: var(--dark-text);
-      font-size: 1.25rem;
+    .document h3 {
+      color: var(--text-primary);
+      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
       font-weight: 600;
       margin: 2rem 0 1rem;
+      line-height: 1.4;
     }
 
-    p {
-      color: var(--dark-text);
+    .document p {
+      color: var(--text-secondary);
       margin-bottom: 1.25rem;
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
-    strong {
-      color: var(--primary-blue);
+    .document strong {
+      color: var(--text-primary);
       font-weight: 600;
     }
 
-    ul, ol {
-      margin: 1.5rem 0;
-      padding-left: 2rem;
+    .document ul,
+    .document ol {
+      margin: 1.25rem 0;
+      padding-left: 1.5rem;
     }
 
-    li {
-      color: var(--dark-text);
+    .document li {
+      color: var(--text-secondary);
       margin-bottom: 0.75rem;
-      line-height: 1.8;
+      line-height: 1.75;
+      padding-left: 0.5rem;
     }
 
-    /* Special Boxes */
-    .notice-box {
+    .term {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ==================== BOXES ==================== */
+    .box {
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      border-left: 4px solid;
+    }
+
+    .box-critical {
       background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-      border-left: 4px solid var(--accent-red);
-      padding: 1.75rem 2rem;
-      border-radius: 12px;
-      margin: 2rem 0;
+      border-color: var(--accent);
     }
 
-    .notice-box strong {
-      color: var(--accent-red);
+    .box-critical strong {
+      color: var(--accent);
     }
 
-    .info-box {
+    .box-info {
       background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-      border-left: 4px solid var(--secondary-blue);
-      padding: 1.75rem 2rem;
-      border-radius: 12px;
-      margin: 2rem 0;
+      border-color: var(--primary);
     }
 
-    .info-box strong {
-      color: var(--secondary-blue);
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
-      border-left: 4px solid #f59e0b;
-      padding: 1.75rem 2rem;
-      border-radius: 12px;
-      margin: 2rem 0;
+    .box-warning {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border-color: #f59e0b;
       display: flex;
       gap: 1rem;
+      align-items: flex-start;
     }
 
-    .highlight-box .icon {
+    .box-warning .icon {
       font-size: 1.5rem;
       flex-shrink: 0;
+      line-height: 1;
     }
 
-    .term-definition {
-      font-weight: 600;
-      color: var(--primary-blue);
-    }
-
-    /* Divider */
+    /* ==================== DIVIDER ==================== */
     .divider {
       height: 1px;
-      background: var(--medium-gray);
+      background: var(--border);
       margin: 3rem 0;
       border: none;
     }
 
-    /* Contact Section */
-    .contact-section {
-      background: var(--light-gray);
-      border-radius: 16px;
-      padding: 2.5rem;
+    /* ==================== CONTACT SECTION ==================== */
+    .contact-box {
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
       margin: 2.5rem 0;
-      border: 1px solid var(--medium-gray);
+      border: 1px solid var(--border);
     }
 
-    .contact-row {
+    .contact-item {
       display: flex;
-      align-items: start;
-      gap: 1.25rem;
+      gap: 1rem;
       margin-bottom: 1.5rem;
+      align-items: flex-start;
     }
 
-    .contact-row:last-child {
+    .contact-item:last-child {
       margin-bottom: 0;
     }
 
     .contact-icon {
       width: 48px;
       height: 48px;
-      background: var(--primary-blue);
+      min-width: 48px;
+      background: var(--primary);
       color: var(--white);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.25rem;
-      flex-shrink: 0;
     }
 
-    .contact-info strong {
+    .contact-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .contact-content strong {
       display: block;
-      color: var(--dark-text);
+      color: var(--text-primary);
       font-weight: 600;
       margin-bottom: 0.25rem;
+      font-size: 0.9375rem;
     }
 
-    .contact-info p {
+    .contact-content p {
       margin: 0;
-      color: var(--muted-text);
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      word-wrap: break-word;
     }
 
-    /* Links */
+    /* ==================== LINKS ==================== */
     a {
-      color: var(--primary-blue);
+      color: var(--primary);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease;
+      word-wrap: break-word;
     }
 
     a:hover {
-      color: var(--secondary-blue);
+      color: var(--primary-dark);
       text-decoration: underline;
     }
 
-    /* Footer */
-    .footer-wrapper {
-      background: var(--dark-text);
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: var(--text-primary);
       color: rgba(255, 255, 255, 0.8);
+      padding: 2.5rem 1.5rem;
       text-align: center;
-      padding: 3rem 2rem;
     }
 
-    .footer-wrapper .company {
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer .company {
       color: var(--white);
       font-weight: 600;
     }
@@ -291,36 +325,167 @@
       margin-top: 1.5rem;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: clamp(1rem, 3vw, 2rem);
       flex-wrap: wrap;
     }
 
     .footer-links a {
       color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
+      font-size: 0.875rem;
+      font-weight: 400;
     }
 
     .footer-links a:hover {
       color: var(--white);
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-wrapper h1 {
-        font-size: 2rem;
+    /* ==================== RESPONSIVE ==================== */
+    
+    /* Tablet: 768px - 1024px */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .header {
+        padding: 3rem 1.5rem 4rem;
       }
 
-      .document-card {
-        padding: 2.5rem 1.5rem;
+      .document {
+        padding: 3rem 2.5rem;
       }
 
-      h2 {
-        font-size: 1.5rem;
-        flex-wrap: wrap;
+      .document h2 {
+        margin: 2.5rem 0 1.25rem;
+      }
+    }
+
+    /* Mobile: Below 768px */
+    @media (max-width: 767px) {
+      .header {
+        padding: 2.5rem 1rem 3.5rem;
       }
 
-      .contact-row {
+      .badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+      }
+
+      .main-container {
+        padding: 0 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .document {
+        padding: 1.75rem 1.25rem;
+        border-radius: 12px;
+      }
+
+      .document h2 {
+        margin: 2rem 0 1rem;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .num {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.9375rem;
+      }
+
+      .document h3 {
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      .document ul,
+      .document ol {
+        padding-left: 1.25rem;
+      }
+
+      .box {
+        padding: 1.25rem;
+      }
+
+      .box-warning {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .contact-box {
+        padding: 1.5rem 1rem;
+      }
+
+      .contact-item {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+      }
+
+      .divider {
+        margin: 2rem 0;
+      }
+
+      .footer {
+        padding: 2rem 1rem;
+      }
+
+      .footer-links {
+        gap: 1rem;
+      }
+    }
+
+    /* Small Mobile: Below 375px */
+    @media (max-width: 374px) {
+      .document {
+        padding: 1.5rem 1rem;
+      }
+
+      .box {
+        padding: 1rem;
+      }
+
+      .contact-box {
+        padding: 1.25rem 0.875rem;
+      }
+    }
+
+    /* Desktop: Above 1200px */
+    @media (min-width: 1200px) {
+      .main-container {
+        padding: 0 2rem;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .header {
+        background: none;
+        color: #000;
+        padding: 1rem;
+      }
+
+      .header h1,
+      .header .subtitle,
+      .header .date {
+        color: #000;
+      }
+
+      .document {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        padding: 1.5rem;
+      }
+
+      .footer {
+        background: none;
+        color: #000;
+        border-top: 1px solid #ddd;
+      }
+
+      .footer .company {
+        color: #000;
       }
     }
   </style>
@@ -329,37 +494,37 @@
 <body>
 
   <!-- HEADER -->
-  <header class="header-wrapper">
-    <div class="header-content">
-      <div class="legal-badge">Legal Agreement</div>
+  <header class="header">
+    <div class="header-container">
+      <div class="badge">Legal Agreement</div>
       <h1>Terms of Service</h1>
       <p class="subtitle">AI-Based Automated Emergency Response System</p>
-      <p class="effective-date">Effective Date: November 8, 2025</p>
+      <p class="date">Effective Date: November 8, 2025</p>
     </div>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main class="content-wrapper">
-    <article class="document-card">
+  <main class="main-container">
+    <article class="document">
 
       <p>
         This Terms of Service Agreement ("<strong>Agreement</strong>") is entered into between you ("<strong>User</strong>," "<strong>you</strong>," or "<strong>your</strong>") and the operators of the AI-Based Automated Emergency Response System ("<strong>Company</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"). By downloading, installing, accessing, or using the AI-Based Automated Emergency Response System (the "<strong>Service</strong>" or "<strong>System</strong>"), you acknowledge that you have read, understood, and agree to be bound by this Agreement.
       </p>
 
-      <div class="notice-box">
+      <div class="box box-critical">
         <strong>IMPORTANT NOTICE:</strong> This System is designed to assist in emergency situations but should not be considered a replacement for traditional emergency services. Always contact your local emergency services (e.g., 911, 112, or equivalent) in life-threatening situations.
       </div>
 
-      <h2><span class="section-num">1</span> Definitions</h2>
+      <h2><span class="num">1</span> <span>Definitions</span></h2>
       <p>For purposes of this Agreement, the following terms shall have the meanings set forth below:</p>
       <ul>
-        <li><span class="term-definition">"Service"</span> refers to the AI-Based Automated Emergency Response System, including all mobile applications, smartwatch applications, web interfaces, and associated technologies.</li>
-        <li><span class="term-definition">"Emergency Contact"</span> means individuals designated by you to receive notifications in case of detected emergencies.</li>
-        <li><span class="term-definition">"Health Data"</span> includes biometric information, vital signs, and health metrics collected through connected devices.</li>
-        <li><span class="term-definition">"Personal Information"</span> encompasses all data that can identify you, including name, contact details, location data, and emergency contacts.</li>
+        <li><span class="term">"Service"</span> refers to the AI-Based Automated Emergency Response System, including all mobile applications, smartwatch applications, web interfaces, and associated technologies.</li>
+        <li><span class="term">"Emergency Contact"</span> means individuals designated by you to receive notifications in case of detected emergencies.</li>
+        <li><span class="term">"Health Data"</span> includes biometric information, vital signs, and health metrics collected through connected devices.</li>
+        <li><span class="term">"Personal Information"</span> encompasses all data that can identify you, including name, contact details, location data, and emergency contacts.</li>
       </ul>
 
-      <h2><span class="section-num">2</span> Service Description and Purpose</h2>
+      <h2><span class="num">2</span> <span>Service Description and Purpose</span></h2>
       <p>
         The Service utilizes artificial intelligence, machine learning algorithms, and sensor technology to detect potential emergency situations, including but not limited to:
       </p>
@@ -373,7 +538,7 @@
         Upon detection of a potential emergency, the Service automatically notifies your designated emergency contacts and, where applicable, emergency medical services and hospitals to facilitate rapid response.
       </p>
 
-      <h2><span class="section-num">3</span> Acceptance and Modification of Terms</h2>
+      <h2><span class="num">3</span> <span>Acceptance and Modification of Terms</span></h2>
       
       <h3>3.1 Acceptance</h3>
       <p>
@@ -385,7 +550,7 @@
         We reserve the right to modify this Agreement at any time. Material changes will be communicated through in-app notifications, email, or prominent notices within the Service. Your continued use of the Service following such modifications constitutes acceptance of the updated terms.
       </p>
 
-      <h2><span class="section-num">4</span> User Eligibility and Account Requirements</h2>
+      <h2><span class="num">4</span> <span>User Eligibility and Account Requirements</span></h2>
       
       <h3>4.1 Age Requirements</h3>
       <p>
@@ -402,7 +567,7 @@
         You must immediately notify us of any unauthorized access or security breach. We are not liable for losses arising from unauthorized use of your account.
       </p>
 
-      <h2><span class="section-num">5</span> User Obligations and Prohibited Conduct</h2>
+      <h2><span class="num">5</span> <span>User Obligations and Prohibited Conduct</span></h2>
       
       <h3>5.1 Lawful Use</h3>
       <p>You agree to use the Service solely for legitimate emergency preparedness and response purposes. You shall not:</p>
@@ -423,7 +588,7 @@
 
       <hr class="divider">
 
-      <h2><span class="section-num">6</span> Privacy, Data Collection, and Usage</h2>
+      <h2><span class="num">6</span> <span>Privacy, Data Collection, and Usage</span></h2>
       
       <h3>6.1 Data We Collect</h3>
       <p>To provide the Service effectively, we collect and process:</p>
@@ -466,14 +631,14 @@
       </ul>
       <p>We do not sell your personal information to third parties.</p>
 
-      <div class="info-box">
+      <div class="box box-info">
         <strong>Your Privacy Rights:</strong> Depending on your jurisdiction, you may have rights to access, correct, delete, or restrict processing of your personal data. Contact us at the address below to exercise these rights.
       </div>
 
-      <h2><span class="section-num">7</span> Required Permissions and Functionality</h2>
+      <h2><span class="num">7</span> <span>Required Permissions and Functionality</span></h2>
       <p>The Service requires specific device permissions to function properly:</p>
       
-      <div class="highlight-box">
+      <div class="box box-warning">
         <span class="icon">⚠️</span>
         <div>
           <strong>Critical Permissions Required:</strong><br><br>
@@ -490,7 +655,7 @@
         Disabling these permissions may significantly impair or prevent the Service from detecting emergencies and providing timely assistance.
       </p>
 
-      <h2><span class="section-num">8</span> Disclaimers and Limitations of Liability</h2>
+      <h2><span class="num">8</span> <span>Disclaimers and Limitations of Liability</span></h2>
       
       <h3>8.1 No Guarantee of Service</h3>
       <p>
@@ -523,7 +688,7 @@
 
       <hr class="divider">
 
-      <h2><span class="section-num">9</span> Intellectual Property Rights</h2>
+      <h2><span class="num">9</span> <span>Intellectual Property Rights</span></h2>
       <p>
         All content, features, functionality, software, algorithms, and technology underlying the Service are owned by us or our licensors and protected by copyright, trademark, patent, trade secret, and other intellectual property laws.
       </p>
@@ -531,12 +696,12 @@
         You are granted a limited, non-exclusive, non-transferable, revocable license to use the Service for personal, non-commercial purposes.
       </p>
 
-      <h2><span class="section-num">10</span> Indemnification</h2>
+      <h2><span class="num">10</span> <span>Indemnification</span></h2>
       <p>
         You agree to indemnify, defend, and hold harmless the Company and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses arising from your use of the Service or violation of this Agreement.
       </p>
 
-      <h2><span class="section-num">11</span> Account Termination and Suspension</h2>
+      <h2><span class="num">11</span> <span>Account Termination and Suspension</span></h2>
       
       <h3>11.1 Voluntary Termination</h3>
       <p>
@@ -553,17 +718,17 @@
         Upon termination, your right to use the Service immediately ceases. Provisions that by their nature should survive termination shall survive.
       </p>
 
-      <h2><span class="section-num">12</span> Updates and Maintenance</h2>
+      <h2><span class="num">12</span> <span>Updates and Maintenance</span></h2>
       <p>
         We may release updates, patches, and new versions of the Service to improve functionality, security, or compliance. Some updates may be mandatory for continued use.
       </p>
 
-      <h2><span class="section-num">13</span> Third-Party Services and Links</h2>
+      <h2><span class="num">13</span> <span>Third-Party Services and Links</span></h2>
       <p>
         The Service may integrate with or link to third-party services. We are not responsible for third-party content, policies, or practices.
       </p>
 
-      <h2><span class="section-num">14</span> Governing Law and Dispute Resolution</h2>
+      <h2><span class="num">14</span> <span>Governing Law and Dispute Resolution</span></h2>
       
       <h3>14.1 Governing Law</h3>
       <p>
@@ -575,29 +740,29 @@
         Any disputes arising from this Agreement shall first be addressed through good-faith negotiation. If unresolved within 30 days, disputes shall be submitted to binding arbitration.
       </p>
 
-      <h2><span class="section-num">15</span> Compliance with Laws</h2>
+      <h2><span class="num">15</span> <span>Compliance with Laws</span></h2>
       <p>
         You agree to comply with all applicable local, state, national, and international laws and regulations, including data protection laws (GDPR, CCPA), telecommunications regulations, and healthcare privacy laws.
       </p>
 
-      <h2><span class="section-num">16</span> Severability</h2>
+      <h2><span class="num">16</span> <span>Severability</span></h2>
       <p>
         If any provision of this Agreement is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
       </p>
 
-      <h2><span class="section-num">17</span> Entire Agreement</h2>
+      <h2><span class="num">17</span> <span>Entire Agreement</span></h2>
       <p>
         This Agreement, together with our Privacy Policy, constitutes the entire agreement between you and the Company regarding the Service.
       </p>
 
-      <h2><span class="section-num">18</span> Contact Information and Support</h2>
+      <h2><span class="num">18</span> <span>Contact Information and Support</span></h2>
       
-      <div class="contact-section">
-        <p style="margin-bottom: 2rem;"><strong>For questions, concerns, or support regarding this Agreement or the Service:</strong></p>
+      <div class="contact-box">
+        <p style="margin-bottom: 2rem; color: var(--text-primary);"><strong>For questions, concerns, or support regarding this Agreement or the Service:</strong></p>
         
-        <div class="contact-row">
+        <div class="contact-item">
           <div class="contact-icon">✉️</div>
-          <div class="contact-info">
+          <div class="contact-content">
             <strong>Email Support</strong>
             <p>
               <a href="mailto:legal@aiemergencyresponse.com">legal@aiemergencyresponse.com</a><br>
@@ -606,64 +771,20 @@
           </div>
         </div>
 
-        <div class="contact-row">
+        <div class="contact-item">
           <div class="contact-icon">📱</div>
-          <div class="contact-info">
-            <strong>24/7 Emergency Support Hotline</strong>
+          <div class="contact-content">
+            <strong>24/7 Emergency Support</strong>
             <p>+1 (800) 555-HELP (4357)</p>
           </div>
         </div>
 
-        <div class="contact-row">
+        <div class="contact-item">
           <div class="contact-icon">🌐</div>
-          <div class="contact-info">
+          <div class="contact-content">
             <strong>Website</strong>
             <p><a href="https://www.aiemergencyresponse.com">www.aiemergencyresponse.com</a></p>
           </div>
         </div>
 
-        <div class="contact-row">
-          <div class="contact-icon">📍</div>
-          <div class="contact-info">
-            <strong>Mailing Address</strong>
-            <p>
-              AI Emergency Response Systems, Inc.<br>
-              [Street Address]<br>
-              [City, State ZIP Code]
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <h2><span class="section-num">19</span> Acknowledgment</h2>
-      <p>
-        BY USING THE SERVICE, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS.
-      </p>
-
-      <hr class="divider">
-
-      <p style="text-align: center; margin-top: 3rem; color: var(--muted-text); font-size: 0.95rem;">
-        <strong>Document Version:</strong> 2.0<br>
-        <strong>Last Updated:</strong> November 8, 2025<br>
-        <strong>Effective Date:</strong> November 8, 2025
-      </p>
-
-    </article>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer-wrapper">
-    <p>
-      © 2025 <span class="company">AI-Based Automated Emergency Response System</span>. All Rights Reserved.
-    </p>
-    <div class="footer-links">
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="#security">Security</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        <div class
