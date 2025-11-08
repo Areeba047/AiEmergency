@@ -1,255 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Agreement | AI-Based Automated Emergency System</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | AI Emergency Response System</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* =============================
-       Global Styles & Theme
-    ============================= */
-    *, *::before, *::after {
+    :root {
+      --primary-blue: #1e40af;
+      --secondary-blue: #3b82f6;
+      --accent-red: #dc2626;
+      --light-gray: #f8fafc;
+      --medium-gray: #e2e8f0;
+      --dark-text: #1e293b;
+      --muted-text: #64748b;
+      --white: #ffffff;
+      --success: #059669;
+    }
+
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    :root {
-      --primary: #d32f2f;          /* Emergency Red */
-      --secondary: #b71c1c;        /* Dark Red */
-      --background: #ffffff;       /* White base */
-      --surface: #fff;
-      --text-main: #1a1a1a;
-      --text-muted: #555;
-      --border: #e5e5e5;
-      --radius: 14px;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --transition: 0.3s ease-in-out;
-    }
-
     body {
-      font-family: "Inter", "Poppins", "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: var(--background);
-      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--dark-text);
       line-height: 1.7;
+      font-size: 16px;
     }
 
-    /* =============================
-       Header Section
-    ============================= */
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
+    /* Header */
+    .header-wrapper {
+      background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      padding: 4.5rem 2rem 6rem;
       text-align: center;
-      padding: 3.5rem 1.5rem 3rem;
       position: relative;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      box-shadow: var(--shadow);
     }
 
-    header h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      opacity: 0.95;
-      font-weight: 500;
-    }
-
-    /* =============================
-       Main Content
-    ============================= */
-    main {
-      max-width: 900px;
-      background: var(--surface);
-      margin: -2.5rem auto 3rem;
-      padding: 3rem 3.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    h2 {
-      color: var(--primary);
-      font-size: 1.35rem;
+    .legal-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+      padding: 0.5rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
       font-weight: 600;
-      margin-top: 2rem;
-      border-left: 6px solid var(--primary);
-      padding-left: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    p, li {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-top: 0.9rem;
+    .header-wrapper h1 {
+      color: var(--white);
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
     }
 
-    ul {
-      margin-left: 1.6rem;
-      list-style: disc;
+    .header-wrapper .subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
     }
 
-    .highlight {
-      background: rgba(211, 47, 47, 0.08);
-      border-left: 5px solid var(--primary);
-      padding: 1.2rem 1.4rem;
+    .effective-date {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    /* Main Container */
+    .content-wrapper {
+      max-width: 1000px;
+      margin: -4rem auto 4rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .document-card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+      padding: 4rem;
+      border: 1px solid var(--medium-gray);
+    }
+
+    /* Typography */
+    h2 {
+      color: var(--primary-blue);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 3.5rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: var(--primary-blue);
+      color: var(--white);
       border-radius: 12px;
-      margin: 1.5rem 0;
-      color: var(--text-main);
-      font-weight: 500;
+      font-size: 1.125rem;
+      font-weight: 700;
+      flex-shrink: 0;
     }
 
-    .divider {
-      border: none;
-      height: 1px;
-      background-color: var(--border);
+    h3 {
+      color: var(--dark-text);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+    }
+
+    p {
+      color: var(--dark-text);
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    strong {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    ul, ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+    }
+
+    li {
+      color: var(--dark-text);
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+
+    /* Special Boxes */
+    .notice-box {
+      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+      border-left: 4px solid var(--accent-red);
+      padding: 1.75rem 2rem;
+      border-radius: 12px;
       margin: 2rem 0;
     }
 
+    .notice-box strong {
+      color: var(--accent-red);
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-left: 4px solid var(--secondary-blue);
+      padding: 1.75rem 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .info-box strong {
+      color: var(--secondary-blue);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+      border-left: 4px solid #f59e0b;
+      padding: 1.75rem 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .highlight-box .icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .term-definition {
+      font-weight: 600;
+      color: var(--primary-blue);
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--medium-gray);
+      margin: 3rem 0;
+      border: none;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      border: 1px solid var(--medium-gray);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-blue);
+      color: var(--white);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info strong {
+      display: block;
+      color: var(--dark-text);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-info p {
+      margin: 0;
+      color: var(--muted-text);
+    }
+
+    /* Links */
     a {
-      color: var(--primary);
+      color: var(--primary-blue);
       text-decoration: none;
       font-weight: 500;
-      transition: var(--transition);
+      transition: color 0.2s ease;
     }
 
     a:hover {
+      color: var(--secondary-blue);
       text-decoration: underline;
-      color: var(--secondary);
     }
 
-    /* =============================
-       Footer Section
-    ============================= */
-    footer {
+    /* Footer */
+    .footer-wrapper {
+      background: var(--dark-text);
+      color: rgba(255, 255, 255, 0.8);
       text-align: center;
-      padding: 2rem 1rem;
-      color: #888;
-      font-size: 0.95rem;
-      border-top: 1px solid var(--border);
-      background-color: #fff;
-      margin-top: 2rem;
+      padding: 3rem 2rem;
     }
 
-    footer span {
-      color: var(--primary);
+    .footer-wrapper .company {
+      color: var(--white);
       font-weight: 600;
     }
 
-    /* =============================
-       Responsive
-    ============================= */
+    .footer-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      main {
-        margin: -2rem 1rem 2rem;
-        padding: 2rem 1.5rem;
+      .header-wrapper h1 {
+        font-size: 2rem;
       }
 
-      header h1 {
-        font-size: 1.8rem;
+      .document-card {
+        padding: 2.5rem 1.5rem;
       }
 
-      header p {
-        font-size: 1rem;
+      h2 {
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-row {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>AI-Based Automated Emergency System</h1>
-    <p>User Agreement & Terms of Service</p>
+
+  <!-- HEADER -->
+  <header class="header-wrapper">
+    <div class="header-content">
+      <div class="legal-badge">Legal Agreement</div>
+      <h1>Terms of Service</h1>
+      <p class="subtitle">AI-Based Automated Emergency Response System</p>
+      <p class="effective-date">Effective Date: November 8, 2025</p>
+    </div>
   </header>
 
-  <main>
-    <p>
-      Welcome to the <strong>AI-Based Automated Emergency System</strong> (“the App”). 
-      This document outlines your rights, obligations, and responsibilities when using this App. 
-      By downloading or using the App, you confirm that you agree to this User Agreement.
-    </p>
+  <!-- MAIN CONTENT -->
+  <main class="content-wrapper">
+    <article class="document-card">
 
-    <h2>1. Purpose</h2>
-    <p>
-      The App is designed to detect road accidents, health emergencies, and missing persons 
-      using mobile and smartwatch sensors. It provides automated alerts to emergency contacts, hospitals, and authorities.
-    </p>
+      <p>
+        This Terms of Service Agreement ("<strong>Agreement</strong>") is entered into between you ("<strong>User</strong>," "<strong>you</strong>," or "<strong>your</strong>") and the operators of the AI-Based Automated Emergency Response System ("<strong>Company</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"). By downloading, installing, accessing, or using the AI-Based Automated Emergency Response System (the "<strong>Service</strong>" or "<strong>System</strong>"), you acknowledge that you have read, understood, and agree to be bound by this Agreement.
+      </p>
 
-    <h2>2. Acceptance of Terms</h2>
-    <p>
-      Using the App signifies your acceptance of these terms. If you do not agree, 
-      please stop using the App immediately.
-    </p>
+      <div class="notice-box">
+        <strong>IMPORTANT NOTICE:</strong> This System is designed to assist in emergency situations but should not be considered a replacement for traditional emergency services. Always contact your local emergency services (e.g., 911, 112, or equivalent) in life-threatening situations.
+      </div>
 
-    <h2>3. User Obligations</h2>
-    <ul>
-      <li>Use the App solely for legitimate safety and emergency purposes.</li>
-      <li>Provide accurate and updated information at all times.</li>
-      <li>Do not misuse the App to send false or spam alerts.</li>
-      <li>Do not modify, copy, or attempt to reverse-engineer the App.</li>
-    </ul>
+      <h2><span class="section-num">1</span> Definitions</h2>
+      <p>For purposes of this Agreement, the following terms shall have the meanings set forth below:</p>
+      <ul>
+        <li><span class="term-definition">"Service"</span> refers to the AI-Based Automated Emergency Response System, including all mobile applications, smartwatch applications, web interfaces, and associated technologies.</li>
+        <li><span class="term-definition">"Emergency Contact"</span> means individuals designated by you to receive notifications in case of detected emergencies.</li>
+        <li><span class="term-definition">"Health Data"</span> includes biometric information, vital signs, and health metrics collected through connected devices.</li>
+        <li><span class="term-definition">"Personal Information"</span> encompasses all data that can identify you, including name, contact details, location data, and emergency contacts.</li>
+      </ul>
 
-    <h2>4. Data Privacy & Security</h2>
-    <p>
-      Your privacy is our top priority. The App collects essential data such as 
-      location, contact information, and health metrics only for emergency response purposes. 
-      All data is encrypted and securely stored in compliance with modern security standards.
-    </p>
+      <h2><span class="section-num">2</span> Service Description and Purpose</h2>
+      <p>
+        The Service utilizes artificial intelligence, machine learning algorithms, and sensor technology to detect potential emergency situations, including but not limited to:
+      </p>
+      <ul>
+        <li>Vehicular accidents and collision events</li>
+        <li>Sudden health emergencies (cardiac events, falls, loss of consciousness)</li>
+        <li>Missing persons scenarios based on unusual movement patterns</li>
+        <li>Other critical situations identified through anomaly detection</li>
+      </ul>
+      <p>
+        Upon detection of a potential emergency, the Service automatically notifies your designated emergency contacts and, where applicable, emergency medical services and hospitals to facilitate rapid response.
+      </p>
 
-    <div class="highlight">
-      ⚠️ <strong>Important:</strong> The App requires access to your location, network, and SMS 
-      for automated alerts. Disabling these may prevent the system from detecting or reporting emergencies.
-    </div>
+      <h2><span class="section-num">3</span> Acceptance and Modification of Terms</h2>
+      
+      <h3>3.1 Acceptance</h3>
+      <p>
+        Your use of the Service constitutes your acceptance of this Agreement. If you do not agree to these terms, you must immediately cease all use of the Service and uninstall any associated applications.
+      </p>
 
-    <h2>5. Permissions</h2>
-    <p>
-      You consent to the use of system permissions required for accurate emergency detection, 
-      including location, Bluetooth, and motion sensors.
-    </p>
+      <h3>3.2 Modifications</h3>
+      <p>
+        We reserve the right to modify this Agreement at any time. Material changes will be communicated through in-app notifications, email, or prominent notices within the Service. Your continued use of the Service following such modifications constitutes acceptance of the updated terms.
+      </p>
 
-    <hr class="divider" />
+      <h2><span class="section-num">4</span> User Eligibility and Account Requirements</h2>
+      
+      <h3>4.1 Age Requirements</h3>
+      <p>
+        You must be at least 18 years of age to create an account. Users between 13 and 17 years of age may use the Service only with parental or legal guardian consent and supervision.
+      </p>
 
-    <h2>6. Limitation of Liability</h2>
-    <p>
-      The App aims to minimize harm by enabling rapid emergency alerts. 
-      However, it does not guarantee the prevention of accidents or emergencies. 
-      Developers are not liable for any loss, damage, or delay in alert delivery.
-    </p>
+      <h3>4.2 Account Registration</h3>
+      <p>
+        You agree to provide accurate, current, and complete information during registration and to update such information as necessary. You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account.
+      </p>
 
-    <h2>7. Updates and Modifications</h2>
-    <p>
-      The App and this agreement may be updated periodically to improve performance and compliance. 
-      Major changes will be notified to users in-app or via official communication channels.
-    </p>
+      <h3>4.3 Account Security</h3>
+      <p>
+        You must immediately notify us of any unauthorized access or security breach. We are not liable for losses arising from unauthorized use of your account.
+      </p>
 
-    <h2>8. Account Deletion & Termination</h2>
-    <p>
-      Users may delete their accounts at any time. The App reserves the right to suspend 
-      or terminate access for misuse, fraudulent activity, or violation of these terms.
-    </p>
+      <h2><span class="section-num">5</span> User Obligations and Prohibited Conduct</h2>
+      
+      <h3>5.1 Lawful Use</h3>
+      <p>You agree to use the Service solely for legitimate emergency preparedness and response purposes. You shall not:</p>
+      <ul>
+        <li>Generate false emergency alerts or test alerts without using designated testing features</li>
+        <li>Misuse the Service for pranks, harassment, or malicious purposes</li>
+        <li>Interfere with or disrupt the Service or servers</li>
+        <li>Attempt to gain unauthorized access to any portion of the Service</li>
+        <li>Reverse engineer, decompile, or disassemble any software component</li>
+        <li>Use automated systems to access the Service without authorization</li>
+        <li>Violate any applicable laws, regulations, or third-party rights</li>
+      </ul>
 
-    <h2>9. Contact Information</h2>
-    <p>
-      For support or legal questions, please contact us:<br />
-      📧 <a href="mailto:support@aibasedemergency.com">support@aibasedemergency.com</a>
-    </p>
+      <h3>5.2 Accurate Information</h3>
+      <p>
+        You are responsible for ensuring all information provided to the Service, including emergency contacts, medical information, and location permissions, remains accurate and current.
+      </p>
 
-    <h2>10. Governing Law</h2>
-    <p>
-      This agreement is governed by applicable national and international technology and data protection laws.
-    </p>
+      <hr class="divider">
 
-    <p><strong>Last Updated:</strong> November 2025</p>
+      <h2><span class="section-num">6</span> Privacy, Data Collection, and Usage</h2>
+      
+      <h3>6.1 Data We Collect</h3>
+      <p>To provide the Service effectively, we collect and process:</p>
+      <ul>
+        <li><strong>Location Data:</strong> Real-time GPS coordinates and movement patterns</li>
+        <li><strong>Sensor Data:</strong> Accelerometer, gyroscope, and motion sensor information</li>
+        <li><strong>Health Metrics:</strong> Heart rate, blood pressure, oxygen saturation (from connected devices)</li>
+        <li><strong>Contact Information:</strong> Your details and emergency contact information</li>
+        <li><strong>Device Information:</strong> Device type, operating system, and unique identifiers</li>
+        <li><strong>Usage Data:</strong> App interactions, features used, and system logs</li>
+      </ul>
+
+      <h3>6.2 Data Usage</h3>
+      <p>We use collected data to:</p>
+      <ul>
+        <li>Detect and respond to emergency situations</li>
+        <li>Notify emergency contacts and medical services</li>
+        <li>Improve AI algorithms and detection accuracy</li>
+        <li>Provide customer support and system maintenance</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+
+      <h3>6.3 Data Security</h3>
+      <p>
+        We implement industry-standard security measures including end-to-end encryption, secure data transmission protocols (TLS/SSL), encrypted storage, regular security audits, and access controls. However, no system is completely secure, and we cannot guarantee absolute security.
+      </p>
+
+      <h3>6.4 Data Retention</h3>
+      <p>
+        We retain personal data for as long as necessary to provide the Service and as required by law. Upon account deletion, most personal data will be removed within 30 days, except where retention is legally required.
+      </p>
+
+      <h3>6.5 Third-Party Sharing</h3>
+      <p>We may share data with:</p>
+      <ul>
+        <li>Emergency services and hospitals (only during detected emergencies)</li>
+        <li>Your designated emergency contacts</li>
+        <li>Service providers assisting with system operations (under strict confidentiality agreements)</li>
+        <li>Law enforcement when legally required</li>
+      </ul>
+      <p>We do not sell your personal information to third parties.</p>
+
+      <div class="info-box">
+        <strong>Your Privacy Rights:</strong> Depending on your jurisdiction, you may have rights to access, correct, delete, or restrict processing of your personal data. Contact us at the address below to exercise these rights.
+      </div>
+
+      <h2><span class="section-num">7</span> Required Permissions and Functionality</h2>
+      <p>The Service requires specific device permissions to function properly:</p>
+      
+      <div class="highlight-box">
+        <span class="icon">⚠️</span>
+        <div>
+          <strong>Critical Permissions Required:</strong><br><br>
+          <strong>Location Services:</strong> Continuous background access for real-time emergency positioning<br>
+          <strong>Motion Sensors:</strong> Accelerometer and gyroscope for accident detection<br>
+          <strong>SMS/Notifications:</strong> Emergency alert transmission<br>
+          <strong>Bluetooth:</strong> Smartwatch and wearable device connectivity<br>
+          <strong>Phone/Contacts:</strong> Emergency contact communication<br>
+          <strong>Storage:</strong> Local data caching for offline functionality
+        </div>
+      </div>
+
+      <p>
+        Disabling these permissions may significantly impair or prevent the Service from detecting emergencies and providing timely assistance.
+      </p>
+
+      <h2><span class="section-num">8</span> Disclaimers and Limitations of Liability</h2>
+      
+      <h3>8.1 No Guarantee of Service</h3>
+      <p>
+        THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. We do not guarantee that the Service will detect all emergencies, operate without interruption, or be error-free.
+      </p>
+
+      <h3>8.2 Factors Affecting Performance</h3>
+      <p>Service effectiveness may be impacted by:</p>
+      <ul>
+        <li>Network connectivity and cellular coverage</li>
+        <li>Device battery level and power availability</li>
+        <li>GPS signal strength and accuracy</li>
+        <li>Sensor hardware limitations</li>
+        <li>User settings and configuration</li>
+        <li>Environmental conditions</li>
+      </ul>
+
+      <h3>8.3 Limitation of Liability</h3>
+      <p>
+        TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF LIFE, PERSONAL INJURY, PROPERTY DAMAGE, OR LOSS OF PROFITS, ARISING FROM YOUR USE OR INABILITY TO USE THE SERVICE.
+      </p>
+      <p>
+        Our total liability for all claims related to the Service shall not exceed the amount you paid for the Service in the twelve (12) months preceding the claim, or $100, whichever is greater.
+      </p>
+
+      <h3>8.4 No Professional Medical Advice</h3>
+      <p>
+        The Service is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of qualified healthcare providers with questions regarding medical conditions.
+      </p>
+
+      <hr class="divider">
+
+      <h2><span class="section-num">9</span> Intellectual Property Rights</h2>
+      <p>
+        All content, features, functionality, software, algorithms, and technology underlying the Service are owned by us or our licensors and protected by copyright, trademark, patent, trade secret, and other intellectual property laws.
+      </p>
+      <p>
+        You are granted a limited, non-exclusive, non-transferable, revocable license to use the Service for personal, non-commercial purposes.
+      </p>
+
+      <h2><span class="section-num">10</span> Indemnification</h2>
+      <p>
+        You agree to indemnify, defend, and hold harmless the Company and its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses arising from your use of the Service or violation of this Agreement.
+      </p>
+
+      <h2><span class="section-num">11</span> Account Termination and Suspension</h2>
+      
+      <h3>11.1 Voluntary Termination</h3>
+      <p>
+        You may delete your account at any time through the Service settings. Account deletion is permanent and cannot be reversed.
+      </p>
+
+      <h3>11.2 Involuntary Termination</h3>
+      <p>
+        We reserve the right to suspend or terminate accounts that violate this Agreement, generate fraudulent alerts, or pose security risks.
+      </p>
+
+      <h3>11.3 Effect of Termination</h3>
+      <p>
+        Upon termination, your right to use the Service immediately ceases. Provisions that by their nature should survive termination shall survive.
+      </p>
+
+      <h2><span class="section-num">12</span> Updates and Maintenance</h2>
+      <p>
+        We may release updates, patches, and new versions of the Service to improve functionality, security, or compliance. Some updates may be mandatory for continued use.
+      </p>
+
+      <h2><span class="section-num">13</span> Third-Party Services and Links</h2>
+      <p>
+        The Service may integrate with or link to third-party services. We are not responsible for third-party content, policies, or practices.
+      </p>
+
+      <h2><span class="section-num">14</span> Governing Law and Dispute Resolution</h2>
+      
+      <h3>14.1 Governing Law</h3>
+      <p>
+        This Agreement shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.
+      </p>
+
+      <h3>14.2 Dispute Resolution</h3>
+      <p>
+        Any disputes arising from this Agreement shall first be addressed through good-faith negotiation. If unresolved within 30 days, disputes shall be submitted to binding arbitration.
+      </p>
+
+      <h2><span class="section-num">15</span> Compliance with Laws</h2>
+      <p>
+        You agree to comply with all applicable local, state, national, and international laws and regulations, including data protection laws (GDPR, CCPA), telecommunications regulations, and healthcare privacy laws.
+      </p>
+
+      <h2><span class="section-num">16</span> Severability</h2>
+      <p>
+        If any provision of this Agreement is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
+      </p>
+
+      <h2><span class="section-num">17</span> Entire Agreement</h2>
+      <p>
+        This Agreement, together with our Privacy Policy, constitutes the entire agreement between you and the Company regarding the Service.
+      </p>
+
+      <h2><span class="section-num">18</span> Contact Information and Support</h2>
+      
+      <div class="contact-section">
+        <p style="margin-bottom: 2rem;"><strong>For questions, concerns, or support regarding this Agreement or the Service:</strong></p>
+        
+        <div class="contact-row">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <strong>Email Support</strong>
+            <p>
+              <a href="mailto:legal@aiemergencyresponse.com">legal@aiemergencyresponse.com</a><br>
+              <a href="mailto:support@aiemergencyresponse.com">support@aiemergencyresponse.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <strong>24/7 Emergency Support Hotline</strong>
+            <p>+1 (800) 555-HELP (4357)</p>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-info">
+            <strong>Website</strong>
+            <p><a href="https://www.aiemergencyresponse.com">www.aiemergencyresponse.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <strong>Mailing Address</strong>
+            <p>
+              AI Emergency Response Systems, Inc.<br>
+              [Street Address]<br>
+              [City, State ZIP Code]
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h2><span class="section-num">19</span> Acknowledgment</h2>
+      <p>
+        BY USING THE SERVICE, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS.
+      </p>
+
+      <hr class="divider">
+
+      <p style="text-align: center; margin-top: 3rem; color: var(--muted-text); font-size: 0.95rem;">
+        <strong>Document Version:</strong> 2.0<br>
+        <strong>Last Updated:</strong> November 8, 2025<br>
+        <strong>Effective Date:</strong> November 8, 2025
+      </p>
+
+    </article>
   </main>
 
-  <footer>
-    &copy; 2025 <span>AI-Based Automated Emergency System</span>. All Rights Reserved.
+  <!-- FOOTER -->
+  <footer class="footer-wrapper">
+    <p>
+      © 2025 <span class="company">AI-Based Automated Emergency Response System</span>. All Rights Reserved.
+    </p>
+    <div class="footer-links">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#security">Security</a>
+      <a href="#contact">Contact</a>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
